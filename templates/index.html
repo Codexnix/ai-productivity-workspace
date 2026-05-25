@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Productivity Workspace</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="background-glow"></div>
+
+    <div class="container">
+
+        <div class="hero-section">
+
+            <h1>🚀 AI Productivity Workspace</h1>
+
+            <p>
+                Transform raw meeting discussions into structured insights,
+                actionable tasks, and smarter workflows instantly.
+            </p>
+
+        </div>
+
+        <div class="glass-card">
+
+            <form method="POST">
+
+                <label>Meeting Type</label>
+
+                <select name="meeting_type">
+
+                    <option>Startup Meeting</option>
+                    <option>Team Sync</option>
+                    <option>Product Discussion</option>
+                    <option>Client Meeting</option>
+
+                </select>
+
+                <label>Paste Meeting Notes</label>
+
+                <textarea
+                    name="notes"
+                    rows="10"
+                    placeholder="Paste your meeting notes here..."
+                    required
+                ></textarea>
+
+                <button type="submit">
+                    ⚡ Generate AI Report
+                </button>
+
+            </form>
+
+        </div>
+
+        {% if response %}
+
+        <div class="output-card">
+
+            <h2>📌 AI Productivity Report</h2>
+
+            <pre class="formatted-output">{{ response }}</pre>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
